@@ -14,12 +14,7 @@ function setup() {
 
   // Random
   for (let w = 0; w < 10; w++) {
-    walls[w] = new Boundary(
-      random(sceneW),
-      random(sceneW),
-      random(sceneH),
-      random(sceneH)
-    );
+    walls[w] = new Boundary(random(sceneW), random(sceneW), random(sceneH), random(sceneH));
   }
 
   // Outer
@@ -33,7 +28,11 @@ function setup() {
 
   // FOV Slider
   sliderFOV = createSlider(2, 180, 90, 2);
+  sliderFOV.position(10, height + 10);
   sliderFOV.input(changeFOV);
+
+  createP('Field of Vision', sliderFOV.x, sliderFOV.y + 15);
+  createP('Use W A S D keys to navigate', sliderFOV.x, sliderFOV.y + 20);
 }
 
 function changeFOV() {
